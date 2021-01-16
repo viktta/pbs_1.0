@@ -3,8 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
-
+    profile = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
 
 class Posts(models.Model):
     title = models.CharField(max_length=191, blank=False)
