@@ -14,7 +14,7 @@ class Signup extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFileSubmit = this.handleFileSubmit.bind(this);
-    this.onFileUpload = this.onFileUpload.bind(this)
+    this.onFileUpload = this.onFileUpload.bind(this);
   }
 
   handleFileSubmit(e) {
@@ -93,10 +93,6 @@ class Signup extends Component {
             />
           </label>
           <input type="submit" value="Submit" />
-        </form>
-        <form onSubmit={this.onFileUpload}>
-          <input name='profile' value={this.state.profile} onChange={this.handleFileSubmit} placeholder='enter file'></input>
-          <button type='submit'></button>
         </form>
       </div>
     );

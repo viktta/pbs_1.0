@@ -46,9 +46,6 @@ class Login extends Component {
         const username = res.data.map((username) => {
           return username.username;
         });
-        const id = res.data.map((id) => {
-          return id.id;
-        });
         const password = res.data.map((password) => {
           return password.password;
         });
@@ -76,6 +73,9 @@ class Login extends Component {
         const date_joined = res.data.map((date_joined) => {
           return date_joined.date_joined;
         });
+        const profile = res.data.map((profile) => {
+          return profile.profile;
+        });
         Cookies.set("username", username);
         Cookies.set("password", password);
         Cookies.set("last_login", last_login);
@@ -86,6 +86,7 @@ class Login extends Component {
         Cookies.set("is_staff", is_staff);
         Cookies.set("is_active", is_active);
         Cookies.set("date_joined", date_joined);
+        Cookies.set("profile", profile);
       })
       .then(() => {
         localStorage.removeItem("user_id");

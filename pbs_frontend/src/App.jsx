@@ -4,7 +4,8 @@ import Signup from "./user/register";
 import axiosInstance from "./axiosApi";
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
 import Cookies from "js-cookie";
-import Posts from './routes/post';
+import Posts from "./routes/post";
+import EditUser from "./user/editUser";
 
 class App extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class App extends Component {
               >
                 Logout
               </Link>
+              <EditUser />
             </nav>
           ) : (
             <nav>
@@ -82,8 +84,8 @@ class App extends Component {
           <Switch>
             <Route exact path={"/login/"} component={Login} />
             <Route exact path={"/signup/"} component={Signup} />
-            <Route exact path={"/"}/>
-            <Route exact path={'/posts/'} component={Posts}/>
+            <Route exact path={"/"} />
+            <Route exact path={"/posts/"} component={Posts} />
           </Switch>
         </div>
       </Router>
