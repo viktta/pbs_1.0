@@ -16,7 +16,6 @@ class Login extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getUserInfo = this.getUserInfo.bind(this);
   }
 
   handleChange(event) {
@@ -27,75 +26,6 @@ class Login extends Component {
     const token = Cookies.get("refresh_token");
     const decode = jwt_decode(token);
     Cookies.set("user_id", decode.user_id);
-  }
-
-  componentDidMount() {
-    const username = Cookies.get("username");
-    if (username) {
-      //pass
-    } else {
-      this.getUserInfo();
-    }
-  }
-
-  getUserInfo(e) {
-    const id = Cookies.get("user_id");
-    axios
-      .get("http://127.0.0.1:8000/api/urv/" + id)
-      .then((res) => {
-        const username = res.data.map((username) => {
-          return username.username;
-        });
-        const password = res.data.map((password) => {
-          return password.password;
-        });
-        const last_login = res.data.map((last_login) => {
-          return last_login.last_login;
-        });
-        const is_superuser = res.data.map((is_superuser) => {
-          return is_superuser.is_superuser;
-        });
-        const first_name = res.data.map((first_name) => {
-          return first_name.first_name;
-        });
-        const last_name = res.data.map((last_name) => {
-          return last_name.last_name;
-        });
-        const email = res.data.map((email) => {
-          return email.email;
-        });
-        const is_staff = res.data.map((is_staff) => {
-          return is_staff.is_staff;
-        });
-        const is_active = res.data.map((is_active) => {
-          return is_active.is_active;
-        });
-        const date_joined = res.data.map((date_joined) => {
-          return date_joined.date_joined;
-        });
-        const profile = res.data.map((profile) => {
-          return profile.profile;
-        });
-        Cookies.set("username", username);
-        Cookies.set("password", password);
-        Cookies.set("last_login", last_login);
-        Cookies.set("is_superuser", is_superuser);
-        Cookies.set("first_name", first_name);
-        Cookies.set("last_name", last_name);
-        Cookies.set("email", email);
-        Cookies.set("is_staff", is_staff);
-        Cookies.set("is_active", is_active);
-        Cookies.set("date_joined", date_joined);
-        Cookies.set("profile", profile);
-      })
-      .then(() => {
-        localStorage.removeItem("user_id");
-        localStorage.removeItem("access_token");
-        localStorage.removeItem("refresh_token");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   }
 
   handleSubmit(event) {

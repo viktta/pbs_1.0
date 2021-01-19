@@ -11,37 +11,24 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 
 
-class userCreateView(APIView):
-    def post(self, request):
-        serializer = userSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class userCreateView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = userSerializer
 
 
-class userView(APIView):
-    def get(self, request):
-        user = User.objects.all()
-        serializer = userSerializer(user, many=True)
-        return Response(serializer.data)
+class userView(generics.ListAPIView):
+   queryset = User.objects.all()
+   serializer_class = userSerializer
 
 
-class userCreatePostView(APIView):
-    def post(self, request):
-        serializer = PostsSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class userCreatePostView(generics.CreateAPIView):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
 
 
-class userPostView(APIView):
-    def get(self, request):
-        posts = Posts.objects.all()
-        serializer = PostsSerializer(posts, many=True)
-        return Response(serializer.data)
-
+class userPostView(generics.ListAPIView):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
 
 class getTokenView(APIView):
     permission_classes = (permissions.AllowAny,)
@@ -62,34 +49,15 @@ class LogoutAndBlacklistRefreshTokenForUserView(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-class userViewId(APIView):
-    def put(self, request, pk):
-        self.snippet = self.get_object(pk)
-        serializer = userSerializer(snippet, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class userViewId(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = userSerializer
+    lookup_field = 'pk'
 
-    def delete(self, request, pk):
-        snippet = self.get_object(pk)
-        snippet.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-class userPostViewId(APIView):
-    def put(self, request, pk):
-        snippet = self.get_object(pk)
-        serializer = PostsSerializer(snippet, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk):
-        snippet = self.get_object(pk)
-        snippet.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+class userPostViewId(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
+    lookup_field = 'pk'
 
 
 class UserRetrieveView(viewsets.ModelViewSet):

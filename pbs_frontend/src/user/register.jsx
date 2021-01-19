@@ -8,13 +8,13 @@ class Signup extends Component {
       username: "",
       password: "",
       email: "",
-      profile: null,
+      first_name: "",
+      last_name: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFileSubmit = this.handleFileSubmit.bind(this);
-    this.onFileUpload = this.onFileUpload.bind(this);
   }
 
   handleFileSubmit(e) {
@@ -25,32 +25,21 @@ class Signup extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  onFileUpload = () => {
-    const formData = new FormData();
-
-    formData.append(
-      "myFile",
-      this.state.selectedFile,
-      this.state.selectedFile.name
-    );
-
-    console.log(this.state.selectedFile);
-
-    axios.post("api/uploadfile", formData);
-  };
-
   handleSubmit(e) {
     e.preventDefault();
-    const username = this.state.username;
-    const email = this.state.email;
-    const password = this.state.password;
-    const profile = this.state.profile;
+    const { username, password, email, first_name, last_name } = this.state;
     axios
       .post("http://127.0.0.1:8000/api/uc/", {
         username,
         email,
         password,
-        profile,
+        first_name,
+        last_name,
+      })
+      .then(() => {
+        window.setTimeout(() => {
+          window.history.go(0);
+        }, 1000);
       })
       .catch((err) => {
         console.log(err);
@@ -91,6 +80,26 @@ class Signup extends Component {
               onChange={this.handleChange}
               placeholder="8 characters or more"
             />
+          </label>
+          <label>
+            first name:
+            <input
+              name="first_name"
+              type="text"
+              value={this.state.first_name}
+              onChange={this.handleChange}
+              placeholder="enter first name"
+            ></input>
+          </label>
+          <label>
+            last name:
+            <input
+              name="last_name"
+              type="text"
+              value={this.state.last_name}
+              onChange={this.handleChange}
+              placeholder="enter last name"
+            ></input>
           </label>
           <input type="submit" value="Submit" />
         </form>

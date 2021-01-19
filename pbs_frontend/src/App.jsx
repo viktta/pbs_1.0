@@ -28,17 +28,7 @@ class App extends Component {
       Cookies.remove("access_token");
       Cookies.remove("refresh_token");
       Cookies.remove("user_id");
-      Cookies.remove("username");
-      Cookies.remove("is_superuser");
-      Cookies.remove("date_joined");
-      Cookies.remove("is_staff");
-      Cookies.remove("_lr_id_");
-      Cookies.remove("first_name");
-      Cookies.remove("last_login");
-      Cookies.remove("email");
-      Cookies.remove("last_name");
-      Cookies.remove("password");
-      Cookies.remove("is_active");
+
       axiosInstance.defaults.headers["Authorization"] = null;
       window.setTimeout(() => {
         window.history.go(0);
@@ -58,6 +48,7 @@ class App extends Component {
               <Link className="nav-link-home" to={"/"}>
                 Home
               </Link>
+              <Link to={"/posts/"} className="nav-link-posts">post</Link>
               <Link
                 className="nav-link-logout"
                 onClick={this.handleLogout}
