@@ -21,7 +21,6 @@ class EditUser extends Component {
     this.closeForm = this.closeForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.editUserD = this.editUserD.bind(this);
-    this.changeProfilePic = this.changeProfilePic.bind(this);
   }
 
   openForm() {
@@ -45,21 +44,6 @@ class EditUser extends Component {
       .catch((err) => {
         console.log(err);
       });
-    
-    axios.get(`http://localhost:8000/api/upv/${id}/`)
-    .then(res => {
-      this.setState({ profile : res.data.profile })
-    })
-  }
-
-
-
-  changeProfilePic(e) {
-    e.preventDefault();
-    const { profile, id } = this.state;
-    axios.patch(`http://localhost:8000/api/upv/${id}/`, {
-      profile,
-    });
   }
 
   editUserD(e) {
@@ -151,15 +135,6 @@ class EditUser extends Component {
             <p>
               if you want to change your user's data you have to change it all
             </p>
-            <form onSubmit={this.changeProfilePic}>
-              <img alt="user profile" src={this.state.profile}></img>
-              <input
-                onChange={this.onFileChange}
-                value={this.state.profile}
-                placeholder="change profile pic"
-              ></input>
-              <button type="submit">change</button>
-            </form>
             <ul>
               {usr_m}
               {usr_m_1}

@@ -19,13 +19,18 @@ class Posts extends Component {
   }
 
   Post(e) {
-    e.preventDefault();
     const { title, body, user } = this.state;
-    axiosInstance.post("/ucpv/", {
-      title,
-      body,
-      user,
-    });
+    axiosInstance
+      .post("/ucpv/", {
+        title,
+        body,
+        user,
+      })
+      .then(() => {
+        window.setTimeout(() => {
+          window.history.go(0);
+        }, 1000);
+      });
   }
 
   render() {
@@ -43,7 +48,6 @@ class Posts extends Component {
             value={this.state.body}
             onChange={this.handleChange}
           ></textarea>
-          <img alt="user-profile"></img>
           <button type="submit">post</button>
         </form>
       </div>

@@ -6,6 +6,8 @@ import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
 import Cookies from "js-cookie";
 import Posts from "./routes/post";
 import EditUser from "./user/editUser";
+import SeePosts from "./routes/sp";
+import SeeSinglePost from "./routes/ssp";
 
 class App extends Component {
   constructor(props) {
@@ -43,12 +45,15 @@ class App extends Component {
     return (
       <Router>
         <div className="site">
+          <EditUser />
           {this.state.refresh ? (
             <nav>
               <Link className="nav-link-home" to={"/"}>
                 Home
               </Link>
-              <Link to={"/posts/"} className="nav-link-posts">post</Link>
+              <Link to={"/posts/"} className="nav-link-posts">
+                post
+              </Link>
               <Link
                 className="nav-link-logout"
                 onClick={this.handleLogout}
@@ -56,7 +61,6 @@ class App extends Component {
               >
                 Logout
               </Link>
-              <EditUser />
             </nav>
           ) : (
             <nav>
@@ -77,7 +81,9 @@ class App extends Component {
             <Route exact path={"/signup/"} component={Signup} />
             <Route exact path={"/"} />
             <Route exact path={"/posts/"} component={Posts} />
+            <Route exact path={"/ssp/"} component={SeeSinglePost} />
           </Switch>
+          <SeePosts />
         </div>
       </Router>
     );
