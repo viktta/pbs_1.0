@@ -1,0 +1,28 @@
+.login-main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+  position: relative;
+  top: 100px;
+  padding: 16px;
+}
+
+.login-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  opacity: 0.8;
+}
+
+.register-button {
+  text-decoration: none;
+  position: relative;
+  left: 75px;
+  color: white;
+  background-color: #4caf50;
+  text-align: center;
+}

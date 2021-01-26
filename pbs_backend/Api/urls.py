@@ -14,5 +14,6 @@ urlpatterns = [
     path('tr/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('ltv/', LogoutAndBlacklistRefreshTokenForUserView.as_view(), name='logut_view'),
     path('urv/<pk>/', UserRetrieveView.as_view({'get': 'retrieve'}), name='get-user-with-id'),
+    path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
