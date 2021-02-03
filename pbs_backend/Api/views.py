@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Posts, User
-from .serializers import PostsSerializer, userSerializer, MyTokenObtainPairSerializer
+from .models import Posts, User, Reply
+from .serializers import PostsSerializer, userSerializer, ReplySerializer, MyTokenObtainPairSerializer
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import viewsets
@@ -17,8 +17,8 @@ class userCreateView(generics.CreateAPIView):
 
 
 class userView(generics.ListAPIView):
-   queryset = User.objects.all()
-   serializer_class = userSerializer
+    queryset = User.objects.all()
+    serializer_class = userSerializer
 
 
 class userCreatePostView(generics.CreateAPIView):
@@ -29,6 +29,7 @@ class userCreatePostView(generics.CreateAPIView):
 class userPostView(generics.ListAPIView):
     queryset = Posts.objects.all()
     serializer_class = PostsSerializer
+
 
 class getTokenView(APIView):
     permission_classes = (permissions.AllowAny,)
@@ -54,22 +55,19 @@ class userViewId(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = userSerializer
     lookup_field = 'pk'
 
+
 class userPostViewId(generics.RetrieveUpdateDestroyAPIView):
     queryset = Posts.objects.all()
     serializer_class = PostsSerializer
-    lookup_field = 'pk'
+    lookup_field = 'title'
 
 
-class UserRetrieveView(viewsets.ModelViewSet):
-    permission_classes = [permissions.AllowAny]
-    serializer_class = userSerializer
+class replyView(generics.CreateAPIView):
+    queryset = Reply.objects.all()
+    serializer_class = ReplySerializer
 
-    def get_queryset(self):
-        user = User.objects.all()
-        return user
 
-    def retrieve(self, request, *args, **kwargs):
-        params = kwargs
-        user = User.objects.filter(id=params['pk'])
-        serializer = userSerializer(user, many=True)
-        return Response(serializer.data)
+class replyViewId(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Reply.objects.all()
+    serializer_class = ReplySerializer
+    lookup_field = 'post'

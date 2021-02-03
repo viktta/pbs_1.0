@@ -1,15 +1,19 @@
 from rest_framework import serializers
-from .models import Posts, User
+from .models import Posts, User, Reply
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
         fields = '__all__'
 
+
 class userSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+
     def create(self, validated_data):
         password = validated_data.pop('password', None)
         instance = self.Meta.model(**validated_data)
@@ -17,6 +21,7 @@ class userSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
@@ -26,3 +31,9 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         # Add custom claims
         return token
+
+
+class ReplySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reply
+        fields = '__all__'
