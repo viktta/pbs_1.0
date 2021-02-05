@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, BrowserRouter as Router} from "react-router-dom";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 
 class GetPosts extends Component {
   constructor(props) {
@@ -22,11 +22,11 @@ class GetPosts extends Component {
       });
   }
 
-rc() {
-  window.setTimeout(() => {
-    window.history.go(0);
-  }, 10);
-}
+  rc() {
+    window.setTimeout(() => {
+      window.history.go(0);
+    }, 10);
+  }
 
   render() {
     const idp = this.state.getp.map((items) => {
@@ -37,7 +37,7 @@ rc() {
         <li key={items.id}>
           <Link
             to={{
-              pathname: `/pv/${items.id}/${items.title}/`,
+              pathname: `/pv/${items.id}/${items.title}/${items.user}/`,
               state: { getp: idp },
             }}
             onClick={this.rc}

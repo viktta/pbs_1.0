@@ -53,7 +53,7 @@ class MainNav extends Component {
           <Route exact path={"/"} />
           <Route exact path={"/register/"} component={Register} />
           <Route exact path={"/login/"} component={Login} />
-          <Route exact path={"/pv/:id/:title/"} component={PostView} />
+          <Route exact path={"/pv/:id/:title/:user/"} component={PostView} />
           <Route exact path={"/sp/"} component={SeePosts} />
           <Route exact path={'/rp/:id/:title/'} component={ReplyPosts} />
         </Switch>

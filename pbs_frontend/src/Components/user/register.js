@@ -20,7 +20,7 @@ class Register extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  userRegister(e, props) {
+  userRegister(e) {
     e.preventDefault();
     const { username, password, first_name, last_name, email } = this.state;
     axios
@@ -36,7 +36,7 @@ class Register extends Component {
         window.setTimeout(() => {
           window.history.go(0);
         }, 1000);
-        props.history.push("/login/");
+        this.props.history.push("/login/");
       })
       .catch((err) => {
         alert(err);
