@@ -8,6 +8,7 @@ class ReplyPosts extends Component {
       reply: "",
       post: props.match.params.id,
       title: props.match.params.title,
+      user: localStorage.getItem('user_id'),
     };
     this.postReply = this.postReply.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -19,15 +20,16 @@ class ReplyPosts extends Component {
 
   postReply(e) {
     e.preventDefault();
-    const { reply, post, title } = this.state;
+    const { reply, post, user } = this.state;
     axios
       .post("http://localhost:8000/api/rpv/", {
         reply,
         post,
+        user,
       })
       .then((res) => {
         window.setTimeout(() => {
-          this.props.history.push(`/pv/${post}/${title}`);
+          this.props.history.push('/sp/');
           window.history.go(0);
         }, 1000);
         console.log(res);
@@ -38,8 +40,11 @@ class ReplyPosts extends Component {
   }
 
   render() {
+    const title = this.state.title;
+
     return (
       <div>
+        <h1>title: {title}</h1>
         <form onSubmit={this.postReply}>
           <textarea
             name="reply"

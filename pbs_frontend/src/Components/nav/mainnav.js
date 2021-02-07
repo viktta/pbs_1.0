@@ -6,7 +6,7 @@ import Login from "../user/login";
 import Cookies from "js-cookie";
 import PostView from "../routes/pv";
 import SeePosts from "../routes/sposts";
-import ReplyPosts from '../routes/rposts';
+import ReplyPosts from "../routes/rposts";
 
 class MainNav extends Component {
   constructor(props) {
@@ -37,14 +37,14 @@ class MainNav extends Component {
             <nav>
               <Link to={"/"}>Home</Link>
               <Link to={"/posts/"}>Post</Link>
-              <Link to={'/sp/'}>See Posts</Link>
+              <Link to={"/sp/"}>See Posts</Link>
               <button onClick={this.logout}>Logout</button>
             </nav>
           ) : (
             <nav>
               <Link to={"/"}>Home</Link> <Link to={"/posts/"}>Post</Link>
               <Link to={"/login/"}>Login</Link>
-              <Link to={'/sp/'}>See Posts</Link>
+              <Link to={"/sp/"}>See Posts</Link>
             </nav>
           )}
         </div>
@@ -55,7 +55,7 @@ class MainNav extends Component {
           <Route exact path={"/login/"} component={Login} />
           <Route exact path={"/pv/:id/:title/:user/"} component={PostView} />
           <Route exact path={"/sp/"} component={SeePosts} />
-          <Route exact path={'/rp/:id/:title/'} component={ReplyPosts} />
+          <Route exact path={"/rp/:id/:title/"} component={ReplyPosts} />
         </Switch>
       </Router>
     );

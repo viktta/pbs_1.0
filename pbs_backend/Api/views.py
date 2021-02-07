@@ -67,7 +67,16 @@ class replyView(generics.CreateAPIView):
     serializer_class = ReplySerializer
 
 
-class replyViewId(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Reply.objects.all()
+class replyViewId(viewsets.ModelViewSet):
+    permission_classes = [permissions.AllowAny]
     serializer_class = ReplySerializer
-    lookup_field = 'post'
+
+    def get_queryset(self):
+        reply = Reply.objects.all()
+        return reply
+
+    def retrieve(self, request, *args, **kwargs):
+        params = kwargs
+        reply = Reply.objects.filter(post=params['post'])
+        serializer = ReplySerializer(reply, many=True)
+        return Response(serializer.data)

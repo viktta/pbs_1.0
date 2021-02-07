@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ReplyPostView from './prv';
 
 class PostView extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class PostView extends Component {
       id: localStorage.getItem("user_id"),
       user_p_id: props.match.params.user,
       user_p_username: [],
+      reply: true,
     };
   }
 
@@ -40,12 +42,14 @@ class PostView extends Component {
 
     const u = p_d_id.map((i) => {
       return (
-        <div>
+        <div key={i.id}>
           <h1>title: {i.title}</h1>
           <h1>body: {i.body}</h1>
         </div>
       );
     });
+
+    const reply = this.state.reply;
 
     return (
       <div>
@@ -59,6 +63,7 @@ class PostView extends Component {
         >
           Reply
         </Link>
+        {reply === true ? <ReplyPostView id={this.state.url_id} title={this.state.title}/> : <h1>.</h1>}
       </div>
     );
   }

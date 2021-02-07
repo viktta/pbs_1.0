@@ -15,5 +15,5 @@ urlpatterns = [
     path('ltv/', LogoutAndBlacklistRefreshTokenForUserView.as_view(), name='logut_view'),
     path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('rpv/', replyView.as_view(), name='reply-view'),
-    path('rpv/<int:post>/', replyViewId.as_view(), name='reply-view-id')
+    path('rpv/<int:post>/', replyViewId.as_view({'get': 'retrieve'}), name='reply-view-id')
 ]
