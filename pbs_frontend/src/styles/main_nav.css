@@ -1,0 +1,61 @@
+.grid-container-mainnav {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.main-nav {
+  padding: 10px;
+  grid-column: 1/7;
+}
+
+.home-nav {
+  position: relative;
+  color: white;
+  padding: 7px 9px;
+  margin-right: 10px;
+  text-decoration: none;
+  background: linear-gradient(#262626, #9d3434);
+  border-radius: 10px;
+}
+
+.post-nav {
+  position: relative;
+  color: white;
+  padding: 8px 15px;
+  margin-right: 10px;
+  text-decoration: none;
+  background: linear-gradient(#262626, #9d3434);
+  border-radius: 10px;
+}
+
+.sp-nav {
+  position: relative;
+  color: white;
+  padding: 8px 9px;
+  margin-right: 10px;
+  text-decoration: none;
+  background: linear-gradient(#262626, #9d3434);
+  border-radius: 10px;
+}
+
+.logout-nav {
+  position: relative;
+  color: white;
+  padding: 8px 9px;
+  margin-right: 10px;
+  text-decoration: none;
+  background: linear-gradient(#262626, #9d3434);
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.login-nav {
+  position: relative;
+  color: white;
+  padding: 7px 9px;
+  margin-right: 10px;
+  text-decoration: none;
+  background: linear-gradient(#262626, #9d3434);
+  border-radius: 10px;
+  border: 1px solid transparent;
+}

@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import PostView from "../routes/pv";
 import SeePosts from "../routes/sposts";
 import ReplyPosts from "../routes/rposts";
+import '../../styles/main_nav.css'
 
 class MainNav extends Component {
   constructor(props) {
@@ -32,19 +33,36 @@ class MainNav extends Component {
     const usr_id = localStorage.getItem("user_id");
     return (
       <Router>
-        <div>
+        <div className='grid-container-mainnav'>
           {usr_id ? (
-            <nav>
-              <Link to={"/"}>Home</Link>
-              <Link to={"/posts/"}>Post</Link>
-              <Link to={"/sp/"}>See Posts</Link>
-              <button onClick={this.logout}>Logout</button>
+            <nav className="main-nav">
+              <Link to={"/"} className="home-nav">
+                Home
+              </Link>
+              <Link to={"/posts/"} className="post-nav">
+                Post
+              </Link>
+              <Link to={"/sp/"} className="sp-nav">
+                See Posts
+              </Link>
+              <button onClick={this.logout} className="logout-nav">
+                Logout
+              </button>
             </nav>
           ) : (
-            <nav>
-              <Link to={"/"}>Home</Link> <Link to={"/posts/"}>Post</Link>
-              <Link to={"/login/"}>Login</Link>
-              <Link to={"/sp/"}>See Posts</Link>
+            <nav className="main-nav">
+              <Link to={"/"} className="home-nav">
+                Home
+              </Link>{" "}
+              <Link to={"/posts/"} className="post-nav">
+                Post
+              </Link>
+              <Link to={"/login/"} className="login-nav">
+                Login
+              </Link>
+              <Link to={"/sp/"} className="sp-nav">
+                See Posts
+              </Link>
             </nav>
           )}
         </div>

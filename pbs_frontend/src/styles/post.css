@@ -1,0 +1,30 @@
+.grid-container-posts {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px;
+}
+
+.post-form {
+  display: block;
+  position: relative;
+  grid-column: 4;
+  grid-row: 3/6;
+}
+
+.title-form {
+  border-radius: 10px;
+}
+
+.body-form {
+  border-radius: 10px;
+}
+
+.form-button {
+  background: linear-gradient(#262626, #9d3434);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  left: 60px;
+}

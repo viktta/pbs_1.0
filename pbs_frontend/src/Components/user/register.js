@@ -53,6 +53,7 @@ class Register extends Component {
             onChange={this.handleChange}
             placeholder="enter username"
             type="text"
+            className='username-register'
           ></input>
           <br />
           <br />
@@ -62,6 +63,7 @@ class Register extends Component {
             onChange={this.handleChange}
             placeholder="enter password"
             type="password"
+            className='password-register'
           ></input>
           <br />
           <br />
@@ -71,6 +73,7 @@ class Register extends Component {
             onChange={this.handleChange}
             placeholder="enter email"
             type="email"
+            className='email-register'
           ></input>
           <br />
           <br />
@@ -80,6 +83,7 @@ class Register extends Component {
             onChange={this.handleChange}
             placeholder="enter first name"
             type="text"
+            className='firstname-register'
           ></input>
           <br />
           <br />
@@ -89,6 +93,7 @@ class Register extends Component {
             onChange={this.handleChange}
             placeholder="enter last name"
             type="text"
+            className='lastname-register'
           ></input>
           <br />
 

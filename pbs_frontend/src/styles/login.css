@@ -8,10 +8,12 @@
 }
 
 .login-button {
-  background-color: #4caf50;
+  background: linear-gradient(#262626, #9d3434);
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
 .login-button:hover {
@@ -19,10 +21,21 @@
 }
 
 .register-button {
+  background: linear-gradient(#262626, #9d3434);
   text-decoration: none;
   position: relative;
   left: 75px;
   color: white;
   background-color: #4caf50;
   text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.username-login {
+  border-radius: 10px;
+}
+
+.password-login {
+  border-radius: 10px;
 }

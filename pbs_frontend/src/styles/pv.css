@@ -1,0 +1,24 @@
+.grid-container-pv {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px;
+}
+
+.pv-post {
+    color: white;
+}
+
+.pv-h1-username {
+    color: white;
+}
+
+.pv-link {
+    color: white;
+    text-decoration: none;
+}
+
+/* .pv-title {
+    position: relative;
+    left: 800px;
+    text-decoration: underline;
+} */

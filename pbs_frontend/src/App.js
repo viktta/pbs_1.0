@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import MainNav from "./Components/nav/mainnav";
 import Cookies from "js-cookie";
+import './styles/app.css'
 
 class App extends Component {
   constructor(props) {

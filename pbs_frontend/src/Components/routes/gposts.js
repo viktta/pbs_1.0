@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link, BrowserRouter as Router } from "react-router-dom";
-
+import '../../styles/gpost.css'
 class GetPosts extends Component {
   constructor(props) {
     super(props);
@@ -41,8 +41,11 @@ class GetPosts extends Component {
               state: { getp: idp },
             }}
             onClick={this.rc}
+            className='gpost-link'
           >
             {items.title}
+            <br />
+            <br />
           </Link>
         </li>
       );
@@ -50,8 +53,8 @@ class GetPosts extends Component {
 
     return (
       <Router>
-        <div>
-          <ul>{p}</ul>
+        <div className='grid-container-getposts'>
+          <ul className='gpost-ul'>{p}</ul>
         </div>
       </Router>
     );

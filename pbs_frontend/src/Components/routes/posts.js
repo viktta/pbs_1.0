@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-
+import "../../styles/post.css";
 class Posts extends Component {
   constructor(props) {
     super(props);
@@ -36,21 +36,29 @@ class Posts extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.setPost}>
+      <div className='grid-container-posts'>
+        <form onSubmit={this.setPost} className="post-form">
           <input
             name="title"
             value={this.state.title}
             onChange={this.handleChange}
             placeholder="post title"
+            className="title-form"
           ></input>
+          <br />
+          <br />
           <input
             name="body"
             value={this.state.body}
             onChange={this.handleChange}
             placeholder="post body"
+            className="body-form"
           ></input>
-          <button type="submit">post</button>
+          <br />
+          <br />
+          <button type="submit" className="form-button">
+            post
+          </button>
         </form>
       </div>
     );

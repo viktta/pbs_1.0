@@ -1,6 +1,5 @@
 import React , { Component } from 'react';
 import GetPosts from './gposts';
-
 class SeePosts extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +10,7 @@ class SeePosts extends Component {
 
     render() {
         return (
-            <div>
+            <div className='sposts-div'>
                 <GetPosts />
             </div>
         )

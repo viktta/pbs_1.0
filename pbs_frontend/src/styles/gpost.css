@@ -1,0 +1,18 @@
+.grid-container-getposts {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px;
+}
+
+.gpost-ul {
+  list-style-type: none;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.gpost-link {
+  box-sizing: border-box;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}

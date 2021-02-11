@@ -1,8 +1,11 @@
 .r-b {
-  background-color: #4caf50;
+  background: linear-gradient(#262626, #9d3434);
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  left: 60px;
 }
 
 .r-b:hover {
@@ -16,4 +19,24 @@
   position: relative;
   top: 100px;
   padding: 16px;
+}
+
+.username-register {
+  border-radius: 10px;
+}
+
+.password-register {
+  border-radius: 10px;
+}
+
+.email-register {
+  border-radius: 10px;
+}
+
+.firstname-register {
+  border-radius: 10px;
+}
+
+.lastname-register {
+  border-radius: 10px;
 }
