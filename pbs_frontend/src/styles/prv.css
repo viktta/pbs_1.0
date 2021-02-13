@@ -1,15 +1,35 @@
 .prv-list {
     list-style-type: none;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px;
 }
 
 .prv-h1-body {
-    color: white;
+    color: black;
+    position: relative;
+    left: 520px;
+    background-color: white;
+    width: 600px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: auto;
+    text-align: center;
 }
 
 .prv-h1-user {
     color: white;
+    position: relative;
+    top: 150px;
+    left: 190px;
+    border: 2px solid #9d3434;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
 }
 
 .prv-h1-date {
     color: white;
+    position: relative;
+    left: 1200px;
+    bottom: 150px;
 }

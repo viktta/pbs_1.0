@@ -1,24 +1,48 @@
 .grid-container-pv {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
-    grid-template-columns: 100px 100px 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px;
 }
 
 .pv-post {
     color: white;
 }
 
-.pv-h1-username {
-    color: white;
-}
-
 .pv-link {
-    color: white;
+    color: rgb(21, 255, 0);
     text-decoration: none;
+    grid-column: 4;
+    grid-row: 2;
+    position: relative;
+    top: 90px;
 }
 
-/* .pv-title {
+.pv-title {
     position: relative;
-    left: 800px;
     text-decoration: underline;
-} */
+    grid-column: 3;
+    grid-row: 1;
+    left: 130px;
+}
+
+.pv-body {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.pv-body, textarea {
+    width: 600px;
+    height: 150px;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    border-radius: 10px;
+}
+
+.pv-h1-username {
+    grid-column: 2;
+    grid-row: 2;
+    color: white;
+    border: 1px solid #9d3434;
+    position: relative;
+    top: 50px;
+}
